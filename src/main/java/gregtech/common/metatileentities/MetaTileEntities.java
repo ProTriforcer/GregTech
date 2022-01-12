@@ -91,7 +91,8 @@ public class MetaTileEntities {
     //public static final SimpleMachineMetaTileEntity[] MASS_FABRICATOR = new SimpleMachineMetaTileEntity[GTValues.V.length - 1];
     //public static final SimpleMachineMetaTileEntity[] REPLICATOR = new SimpleMachineMetaTileEntity[GTValues.V.length - 1];
     // TODO Assembly Line Research system
-    //public static final SimpleMachineMetaTileEntity[] SCANNER = new SimpleMachineMetaTileEntity[GTValues.V.length - 1];
+    public static final SimpleMachineMetaTileEntity[] SCANNER = new SimpleMachineMetaTileEntity[GTValues.V.length - 1];
+    public static final MetaTileEntityDataHatch[] DATA_HATCH = new MetaTileEntityDataHatch[2];
     public static final SimpleMachineMetaTileEntity[] GAS_COLLECTOR = new MetaTileEntityGasCollector[GTValues.V.length - 1];
     public static final MetaTileEntityRockBreaker[] ROCK_BREAKER = new MetaTileEntityRockBreaker[GTValues.V.length - 1];
     public static final MetaTileEntityMiner[] MINER = new MetaTileEntityMiner[GTValues.V.length - 1];
@@ -354,7 +355,7 @@ public class MetaTileEntities {
         // TODO Assembly Line Research system
         // TODO Should anonymously override SimpleMachineMetaTileEntity#getCircuitSlotOverlay() to display the data stick overlay
         // Scanner, IDs 455-469
-        //registerSimpleMetaTileEntity(SCANNER, 455, "scanner", RecipeMaps.SCANNER_RECIPES, Textures.SCANNER_OVERLAY, true);
+        registerSimpleMetaTileEntity(SCANNER, 455, "scanner", RecipeMaps.SCANNER_RECIPES, Textures.SCANNER_OVERLAY, true);
 
         // Mixer, IDs 470-484
         registerSimpleMetaTileEntity(MIXER, 470, "mixer", RecipeMaps.MIXER_RECIPES, Textures.MIXER_OVERLAY, false, GTUtility.hvCappedTankSizeFunction);
@@ -708,6 +709,10 @@ public class MetaTileEntities {
         // Creative Chest and Tank, IDs 1668-1669
         CREATIVE_CHEST = registerMetaTileEntity(1668, new MetaTileEntityCreativeChest(gregtechId("creative_chest")));
         CREATIVE_TANK = registerMetaTileEntity(1669, new MetaTileEntityCreativeTank(gregtechId("creative_tank")));
+
+        // Data Access hatches, IDs 1670-1671
+        DATA_HATCH[0] = registerMetaTileEntity(1670, new MetaTileEntityDataHatch(gregtechId("data_hatch.ev"), GTValues.EV));
+        DATA_HATCH[1] = registerMetaTileEntity(1671, new MetaTileEntityDataHatch(gregtechId("data_hatch.luv"), GTValues.LuV));
 
 
 
