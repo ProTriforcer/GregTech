@@ -49,6 +49,7 @@ public class SimpleCapabilityManager {
         registerCapabilityWithNoDefault(IMultipleRecipeMaps.class);
         registerCapabilityWithNoDefault(AbstractRecipeLogic.class);
         registerCapabilityWithNoDefault(HardwareProvider.class);
+        registerCapabilityWithNoDefault(IResearchDataProvider.class);
 
         registerCapabilityWithNoDefault(IWrenchItem.class);
         registerCapabilityWithNoDefault(ICutterItem.class);
