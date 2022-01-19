@@ -352,7 +352,6 @@ public class MetaTileEntities {
         // Lathe, IDs 440-454
         registerSimpleMetaTileEntity(LATHE, 440, "lathe", RecipeMaps.LATHE_RECIPES, Textures.LATHE_OVERLAY, true);
 
-        // TODO Assembly Line Research system
         // TODO Should anonymously override SimpleMachineMetaTileEntity#getCircuitSlotOverlay() to display the data stick overlay
         // Scanner, IDs 455-469
         registerSimpleMetaTileEntity(SCANNER, 455, "scanner", RecipeMaps.SCANNER_RECIPES, Textures.SCANNER_OVERLAY, true);
@@ -711,8 +710,8 @@ public class MetaTileEntities {
         CREATIVE_TANK = registerMetaTileEntity(1669, new MetaTileEntityCreativeTank(gregtechId("creative_tank")));
 
         // Data Access hatches, IDs 1670-1671
-        DATA_HATCH[0] = registerMetaTileEntity(1670, new MetaTileEntityDataHatch(gregtechId("data_hatch.ev"), GTValues.EV));
-        DATA_HATCH[1] = registerMetaTileEntity(1671, new MetaTileEntityDataHatch(gregtechId("data_hatch.luv"), GTValues.LuV));
+        DATA_HATCH[0] = registerMetaTileEntity(1670, new MetaTileEntityDataHatch(gregtechId("data_hatch.ev"), GTValues.EV, 4));
+        DATA_HATCH[1] = registerMetaTileEntity(1671, new MetaTileEntityDataHatch(gregtechId("data_hatch.luv"), GTValues.LuV, 16));
 
 
 
