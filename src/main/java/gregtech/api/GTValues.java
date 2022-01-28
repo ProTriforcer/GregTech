@@ -159,7 +159,7 @@ public class GTValues {
     /**
      * Used to tell if any high-tier machine (UHV+) was registered.
      */
-    public static boolean HT = true;
+    public static boolean HT = false;
 
     public static Supplier<Boolean> FOOLS = () -> {
         String[] yearMonthDay = LocalDate.now().toString().split("-");
