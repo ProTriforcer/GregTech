@@ -125,8 +125,4 @@ public class MetaTileEntityEnergyHatch extends MetaTileEntityMultiblockPart impl
     public boolean canRenderFrontFaceX() {
         return isExportHatch;
     }
-
-    public long getEnergyInOut() {
-        return amperage * GTValues.V[getTier()];
-    }
 }
