@@ -1110,9 +1110,6 @@ cover.smart_item_filter.filtering_mode.electrolyzer=电解器
 cover.smart_item_filter.filtering_mode.centrifuge=离心机
 cover.smart_item_filter.filtering_mode.sifter=筛子
 cover.smart_item_filter.filtering_mode.description=选择这个智能过滤器将用于过滤的机器。/n它会自动为机械臂挑选正确的物品部分。
-cover.smart_item_filter.matching_mode.default=默认
-cover.smart_item_filter.matching_mode.ignore_fluid=忽略流体
-cover.smart_item_filter.matching_mode.description=§e默认§r - 假设您不提供任何流体，则将根据两个项目/流体标准匹配配方。 /n§e忽略流体§r - 将仅根据物品标准匹配配方。
 
 cover.conveyor.title=传送覆盖板设置 (%s)
 cover.conveyor.transfer_rate=§7物品/秒
