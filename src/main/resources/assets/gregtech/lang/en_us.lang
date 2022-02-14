@@ -1691,6 +1691,8 @@ material.rarest_metal_mixture=Rarest Metal Mixture
 material.ammonium_chloride=Ammonium Chloride
 material.acidic_osmium_solution=Acidic Osmium Solution
 material.rhodium_plated_palladium=Rhodium Plated Palladium
+material.butraldehyde=Butraldehyde
+material.polyvinyl_butyral=Polyvinyl Butyral
 
 
 # Unknown Composition Materials
@@ -2436,6 +2438,7 @@ tile.fusion_casing.fusion_casing_mk3.name=Fusion Machine Casing MK III
 # Transparent casing blocks
 tile.transparent_casing.tempered_glass.name=Tempered Glass
 tile.transparent_casing.fusion_glass.name=Fusion Glass
+tile.transparent_casing.laminated_glass.name=Laminated Glass
 
 # Creative tabs
 itemGroup.gregtech.main=GregTech

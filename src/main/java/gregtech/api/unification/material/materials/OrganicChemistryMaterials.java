@@ -470,5 +470,18 @@ public class OrganicChemistryMaterials {
                 .flags(GENERATE_GEAR, GENERATE_RING, FLAMMABLE, NO_SMASHING, DISABLE_DECOMPOSITION, GENERATE_FOIL, GENERATE_BOLT_SCREW)
                 .components(Carbon, 5, Hydrogen, 8)
                 .build();
+
+        Butraldehyde = new Material.Builder(1069, "butraldehyde")
+                .fluid()
+                .colorAverage()
+                .components(Propene, 1, Hydrogen, 2, CarbonMonoxide, 1)
+                .build();
+
+        PolyvinylButyral = new Material.Builder(1070, "polyvinyl_butyral")
+                .ingot().fluid()
+                .colorAverage()
+                .flags(GENERATE_PLATE)
+                .components(Butraldehyde, 1, PolyvinylAcetate, 1)
+                .build();
     }
 }
