@@ -93,6 +93,7 @@ public class MetaTileEntities {
     // TODO Assembly Line Research system
     public static final SimpleMachineMetaTileEntity[] SCANNER = new SimpleMachineMetaTileEntity[GTValues.V.length - 1];
     public static final MetaTileEntityDataHatch[] DATA_HATCH = new MetaTileEntityDataHatch[2];
+    public static MetaTileEntityCreativeDataHatch CREATIVE_DATA_HATCH;
     public static final SimpleMachineMetaTileEntity[] GAS_COLLECTOR = new MetaTileEntityGasCollector[GTValues.V.length - 1];
     public static final MetaTileEntityRockBreaker[] ROCK_BREAKER = new MetaTileEntityRockBreaker[GTValues.V.length - 1];
     public static final MetaTileEntityMiner[] MINER = new MetaTileEntityMiner[GTValues.V.length - 1];
@@ -712,6 +713,8 @@ public class MetaTileEntities {
         // Data Access hatches, IDs 1670-1671
         DATA_HATCH[0] = registerMetaTileEntity(1670, new MetaTileEntityDataHatch(gregtechId("data_hatch.ev"), GTValues.EV, 4));
         DATA_HATCH[1] = registerMetaTileEntity(1671, new MetaTileEntityDataHatch(gregtechId("data_hatch.luv"), GTValues.LuV, 16));
+
+        CREATIVE_DATA_HATCH = registerMetaTileEntity(1672, new MetaTileEntityCreativeDataHatch(gregtechId("creative_data_hatch")));
 
 
 
