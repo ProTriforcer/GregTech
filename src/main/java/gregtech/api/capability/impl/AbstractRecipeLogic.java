@@ -14,6 +14,7 @@ import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.logic.IParallelableRecipeLogic;
 import gregtech.api.recipes.recipeproperties.RecipePropertyStorage;
+import gregtech.api.util.GTTransferUtils;
 import gregtech.api.util.GTUtility;
 import gregtech.api.util.ItemStackHashStrategy;
 import gregtech.common.ConfigHolder;
@@ -417,8 +418,8 @@ public abstract class AbstractRecipeLogic extends MTETrait implements IWorkable,
         IMultipleTankHandler exportFluids = getOutputTank();
 
         if (!canVoidRecipeOutputs() &&
-                (!MetaTileEntity.addItemsToItemHandler(exportInventory, true, recipe.getAllItemOutputs(exportInventory.getSlots())) ||
-                 !MetaTileEntity.addFluidsToFluidHandler(exportFluids, true, recipe.getFluidOutputs()))) {
+                (!GTTransferUtils.addItemsToItemHandler(exportInventory, true, recipe.getAllItemOutputs(exportInventory.getSlots())) ||
+                 !GTTransferUtils.addFluidsToFluidHandler(exportFluids, true, recipe.getFluidOutputs()))) {
             this.isOutputsFull = true;
             return false;
         }
@@ -665,8 +666,8 @@ public abstract class AbstractRecipeLogic extends MTETrait implements IWorkable,
      * completes the recipe which was being run, and performs actions done upon recipe completion
      */
     protected void completeRecipe() {
-        MetaTileEntity.addItemsToItemHandler(getOutputInventory(), false, itemOutputs);
-        MetaTileEntity.addFluidsToFluidHandler(getOutputTank(), false, fluidOutputs);
+        GTTransferUtils.addItemsToItemHandler(getOutputInventory(), false, itemOutputs);
+        GTTransferUtils.addFluidsToFluidHandler(getOutputTank(), false, fluidOutputs);
         this.progressTime = 0;
         setMaxProgress(0);
         this.recipeEUt = 0;
