@@ -30,6 +30,8 @@ import net.minecraft.world.WorldServer;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nonnull;
+
+import java.time.chrono.ThaiBuddhistChronology;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -157,8 +159,7 @@ public class MinerLogic {
         }
 
         // check if the miner needs new blocks to mine and get them if needed
-        if (blocksToMine.isEmpty())
-            checkBlocksToMine();
+        checkBlocksToMine();
 
         // if there are blocks to mine and the correct amount of time has passed, do the mining
         if (metaTileEntity.getOffsetTimer() % this.speed == 0 && !blocksToMine.isEmpty()) {
@@ -324,7 +325,14 @@ public class MinerLogic {
      * Checks whether there are any more blocks to mine, if there are currently none queued
      */
     public void checkBlocksToMine() {
-        blocksToMine.addAll(getBlocksToMine());
+        if (blocksToMine.isEmpty())
+            blocksToMine.addAll(getBlocksToMine());
+    }
+
+    public void resetArea() {
+        initPos(this.getPos(), currentRadius);
+        blocksToMine.clear();
+        checkBlocksToMine();
     }
 
     /**
