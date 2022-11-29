@@ -157,7 +157,8 @@ public class MinerLogic {
         }
 
         // check if the miner needs new blocks to mine and get them if needed
-        checkBlocksToMine();
+        if (blocksToMine.isEmpty())
+            checkBlocksToMine();
 
         // if there are blocks to mine and the correct amount of time has passed, do the mining
         if (metaTileEntity.getOffsetTimer() % this.speed == 0 && !blocksToMine.isEmpty()) {
@@ -323,8 +324,7 @@ public class MinerLogic {
      * Checks whether there are any more blocks to mine, if there are currently none queued
      */
     public void checkBlocksToMine() {
-        if (blocksToMine.isEmpty())
-            blocksToMine.addAll(getBlocksToMine());
+        blocksToMine.addAll(getBlocksToMine());
     }
 
     /**
