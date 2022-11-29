@@ -164,22 +164,24 @@ public class MinerLogic {
             NonNullList<ItemStack> blockDrops = NonNullList.create();
             IBlockState blockState = metaTileEntity.getWorld().getBlockState(blocksToMine.getFirst());
 
-            // if the block is not air or cobblestone., harvest it
-            if (GTUtility.isOre(GTUtility.toItem(blockState))) {
+            // check to make sure the ore is still there,
+            while(!GTUtility.isOre(GTUtility.toItem(blockState))) {
+                blocksToMine.removeFirst();
+                if (blocksToMine.isEmpty()) break;
+                blockState = metaTileEntity.getWorld().getBlockState(blocksToMine.getFirst());
+            }
+            // When we are here we have an ore to mine! I'm glad we aren't threaded
+            if (!blocksToMine.isEmpty() & GTUtility.isOre(GTUtility.toItem(blockState))) {
                 // get the small ore drops, if a small ore
                 getSmallOreBlockDrops(blockDrops, world, blocksToMine.getFirst(), blockState);
                 // get the block's drops.
                 getRegularBlockDrops(blockDrops, world, blocksToMine.getFirst(), blockState);
                 // try to insert them
                 mineAndInsertItems(blockDrops, world);
-            } else {
-                // the block attempted to mine was air or cobblestone, so remove it from the queue and move on
-                // This can occur because of block destruction when lowering the pipe or when two miners are attempting
-                // to mine the same area
-                blocksToMine.removeFirst();
             }
 
-        } else if (blocksToMine.isEmpty()) {
+        }
+        if (blocksToMine.isEmpty()) {
             // there were no blocks to mine, so the current position is the previous position
             x.set(mineX.get());
             y.set(mineY.get());
@@ -354,12 +356,12 @@ public class MinerLogic {
                         x.incrementAndGet();
                     } else {
                         // reset x and move to the next z layer
-                        x.set(x.get() - currentRadius * 2);
+                        x.set(startX.get());
                         z.incrementAndGet();
                     }
                 } else {
                     // reset z and move to the next y layer
-                    z.set(z.get() - currentRadius * 2);
+                    z.set(startZ.get());
                     y.decrementAndGet();
                 }
             } else
