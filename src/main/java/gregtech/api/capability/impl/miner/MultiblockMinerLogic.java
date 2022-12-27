@@ -98,10 +98,8 @@ public class MultiblockMinerLogic extends MinerLogic {
 
     public void setChunkMode(boolean isChunkMode) {
         if (!isWorkingEnabled()) {
-            getX().set(Integer.MAX_VALUE);
-            getY().set(Integer.MAX_VALUE);
-            getZ().set(Integer.MAX_VALUE);
             this.isChunkMode = isChunkMode;
+            this.initPos(pos, this.getCurrentRadius());
         }
     }
 
