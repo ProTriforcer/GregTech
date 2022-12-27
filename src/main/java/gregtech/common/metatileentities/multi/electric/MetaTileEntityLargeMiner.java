@@ -219,7 +219,7 @@ public class MetaTileEntityLargeMiner extends MultiblockWithDisplayBase implemen
             textList.add(new TextComponentTranslation("gregtech.machine.miner.startx", this.minerLogic.getX().get() == Integer.MAX_VALUE ? 0 : this.minerLogic.getX().get()));
             textList.add(new TextComponentTranslation("gregtech.machine.miner.starty", this.minerLogic.getY().get() == Integer.MAX_VALUE ? 0 : this.minerLogic.getY().get()));
             textList.add(new TextComponentTranslation("gregtech.machine.miner.startz", this.minerLogic.getZ().get() == Integer.MAX_VALUE ? 0 : this.minerLogic.getZ().get()));
-            if (chunkMode)
+            if (this.minerlogic.isChunkMode())
                 textList.add(new TextComponentTranslation("gregtech.machine.miner.chunkradius", this.minerLogic.getCurrentRadius() / CHUNK_LENGTH));
             else
                 textList.add(new TextComponentTranslation("gregtech.machine.miner.radius", this.minerLogic.getCurrentRadius()));
@@ -366,7 +366,7 @@ public class MetaTileEntityLargeMiner extends MultiblockWithDisplayBase implemen
         if (!this.isActive()) {
             int currentRadius = this.minerLogic.getCurrentRadius();
             
-            if (chunkMode){
+            if (this.minerlogic.isChunkMode()){
                 if (currentRadius - CHUNK_LENGTH <= 0)
                     this.minerLogic.setCurrentRadius(this.minerLogic.getMaximumRadius());
                 else
