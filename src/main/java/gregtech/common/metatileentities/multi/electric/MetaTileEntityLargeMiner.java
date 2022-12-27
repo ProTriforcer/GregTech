@@ -82,13 +82,13 @@ public class MetaTileEntityLargeMiner extends MultiblockWithDisplayBase implemen
 
     private final MultiblockMinerLogic minerLogic;
 
-    public MetaTileEntityLargeMiner(ResourceLocation metaTileEntityId, int tier, int speed, int maximumChunkRadius, int fortune, Material material, int drillingFluidConsumePerTick) {
+    public MetaTileEntityLargeMiner(ResourceLocation metaTileEntityId, int tier, int speed, int maximumChunkDiameter, int fortune, Material material, int drillingFluidConsumePerTick) {
         super(metaTileEntityId);
         this.material = material;
         this.tier = tier;
         this.drillingFluidConsumePerTick = drillingFluidConsumePerTick;
         this.romanNumeralString = GTUtility.romanNumeralString(fortune);
-        this.minerLogic = new MultiblockMinerLogic(this, fortune, speed, maximumChunkRadius * CHUNK_LENGTH, getBaseTexture(null), RecipeMaps.MACERATOR_RECIPES);
+        this.minerLogic = new MultiblockMinerLogic(this, fortune, speed, maximumChunkDiameter * CHUNK_LENGTH / 2, getBaseTexture(null), RecipeMaps.MACERATOR_RECIPES);
     }
 
     @Override
@@ -365,7 +365,7 @@ public class MetaTileEntityLargeMiner extends MultiblockWithDisplayBase implemen
             if (currentRadius - CHUNK_LENGTH == 0)
                 this.minerLogic.setCurrentRadius(this.minerLogic.getMaximumRadius());
             else
-                this.minerLogic.setCurrentRadius(currentRadius - CHUNK_LENGTH);
+                this.minerLogic.setCurrentRadius(currentRadius - CHUNK_LENGTH / 2);
 
             this.minerLogic.resetArea();
 
