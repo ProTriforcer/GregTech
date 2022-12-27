@@ -97,7 +97,7 @@ public class MultiblockMinerLogic extends MinerLogic {
     }
 
     public void setChunkMode(boolean isChunkMode) {
-        if (!isWorkingEnabled()) {
+        if (!isWorking()) {
             this.isChunkMode = isChunkMode;
             resetArea();
         }
@@ -108,7 +108,7 @@ public class MultiblockMinerLogic extends MinerLogic {
     }
 
     public void setSilkTouchMode(boolean isSilkTouchMode) {
-        if (!isWorkingEnabled())
+        if (!isWorking())
             this.isSilkTouchMode = isSilkTouchMode;
     }
 

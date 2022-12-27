@@ -361,7 +361,7 @@ public class MetaTileEntityLargeMiner extends MultiblockWithDisplayBase implemen
         if (getWorld().isRemote || !this.isStructureFormed())
             return true;
 
-        if (!this.minerLogic.isActive()) {
+        if (!this.isActive()) {
             int currentRadius = this.minerLogic.getCurrentRadius();
             if (currentRadius - CHUNK_LENGTH / 2 == 0)
                 this.minerLogic.setCurrentRadius(this.minerLogic.getMaximumRadius());
