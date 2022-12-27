@@ -93,7 +93,7 @@ public class MetaTileEntityLargeMiner extends MultiblockWithDisplayBase implemen
 
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity tileEntity) {
-        return new MetaTileEntityLargeMiner(metaTileEntityId, this.tier, this.minerLogic.getSpeed(), this.minerLogic.getMaximumRadius() / CHUNK_LENGTH, this.minerLogic.getFortune(), getMaterial(), getDrillingFluidConsumePerTick());
+        return new MetaTileEntityLargeMiner(metaTileEntityId, this.tier, this.minerLogic.getSpeed(), this.minerLogic.getMaximumRadius() / CHUNK_LENGTH * 2, this.minerLogic.getFortune(), getMaterial(), getDrillingFluidConsumePerTick());
     }
 
     @Override
@@ -362,7 +362,7 @@ public class MetaTileEntityLargeMiner extends MultiblockWithDisplayBase implemen
 
         if (!this.minerLogic.isActive()) {
             int currentRadius = this.minerLogic.getCurrentRadius();
-            if (currentRadius - CHUNK_LENGTH == 0)
+            if (currentRadius - CHUNK_LENGTH / 2== 0)
                 this.minerLogic.setCurrentRadius(this.minerLogic.getMaximumRadius());
             else
                 this.minerLogic.setCurrentRadius(currentRadius - CHUNK_LENGTH / 2);
