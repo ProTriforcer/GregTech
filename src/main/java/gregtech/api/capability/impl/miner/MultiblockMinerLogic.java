@@ -99,7 +99,7 @@ public class MultiblockMinerLogic extends MinerLogic {
     public void setChunkMode(boolean isChunkMode) {
         if (!isWorkingEnabled()) {
             this.isChunkMode = isChunkMode;
-            this.initPos(metaTileEntity.getPos(), this.getCurrentRadius());
+            resetArea();
         }
     }
 
