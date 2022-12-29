@@ -236,11 +236,11 @@ public class MetaTileEntityLargeMiner extends MultiblockWithDisplayBase implemen
             if (!drainEnergy(true))
                 textList.add(new TextComponentTranslation("gregtech.multiblock.large_miner.needspower").setStyle(new Style().setColor(TextFormatting.RED)));
             */
-            textList.add(new TextComponentString("this.tier: %d").appendText(((String)this.tier)));
-            textList.add(new TextComponentString("getTier(): %d").appendText((String)getTier()));
-            textList.add(new TextComponentString("GTValues.VA[GTUtility.getTierByVoltage(getEnergyTier())]: %d").appendText((String)GTValues.VA[GTUtility.getTierByVoltage(getEnergyTier())]));
-            textList.add(new TextComponentString("getEnergyTier(): %d").appendText((String)getEnergyTier()));
-            textList.add(new TextComponentString("energyContainer.getInputVoltage(): %d").appendText((String)energyContainer.getInputVoltage()));
+            textList.add(new TextComponentString("this.tier: %d").appendText(String.valueOf(this.tier)));
+            textList.add(new TextComponentString("getTier(): %d").appendText(String.valueOf(getTier())));
+            textList.add(new TextComponentString("GTValues.VA[GTUtility.getTierByVoltage(getEnergyTier())]: %d").appendText(String.valueOf(GTValues.VA[GTUtility.getTierByVoltage(getEnergyTier())])));
+            textList.add(new TextComponentString("getEnergyTier(): %d").appendText(String.valueOf(getEnergyTier())));
+            textList.add(new TextComponentString("energyContainer.getInputVoltage(): %d").appendText(String.valueOf(energyContainer.getInputVoltage())));
             
             
             
