@@ -331,6 +331,7 @@ public class MinerLogic {
 
     public void resetArea() {
         initPos(metaTileEntity.getPos(), currentRadius);
+        isDone = false;
         blocksToMine.clear();
         checkBlocksToMine();
     }
