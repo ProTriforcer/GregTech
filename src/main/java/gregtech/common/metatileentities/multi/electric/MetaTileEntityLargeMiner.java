@@ -215,7 +215,7 @@ public class MetaTileEntityLargeMiner extends MultiblockWithDisplayBase implemen
                 String voltageName = GTValues.VNF[energyContainer];
                 textList.add(new TextComponentTranslation("gregtech.multiblock.max_energy_per_tick", maxVoltage, voltageName));
             }
-
+            /*
             textList.add(new TextComponentTranslation("gregtech.machine.miner.startx", this.minerLogic.getX().get() == Integer.MAX_VALUE ? 0 : this.minerLogic.getX().get()));
             textList.add(new TextComponentTranslation("gregtech.machine.miner.starty", this.minerLogic.getY().get() == Integer.MAX_VALUE ? 0 : this.minerLogic.getY().get()));
             textList.add(new TextComponentTranslation("gregtech.machine.miner.startz", this.minerLogic.getZ().get() == Integer.MAX_VALUE ? 0 : this.minerLogic.getZ().get()));
@@ -235,6 +235,15 @@ public class MetaTileEntityLargeMiner extends MultiblockWithDisplayBase implemen
                 textList.add(new TextComponentTranslation("gregtech.multiblock.large_miner.needsfluid").setStyle(new Style().setColor(TextFormatting.RED)));
             if (!drainEnergy(true))
                 textList.add(new TextComponentTranslation("gregtech.multiblock.large_miner.needspower").setStyle(new Style().setColor(TextFormatting.RED)));
+            */
+            textList.add("this.tier: "+this.tier);
+            textList.add("getTier(): "+getTier());
+            textList.add("GTValues.VA[GTUtility.getTierByVoltage(getEnergyTier())]: "+GTValues.VA[GTUtility.getTierByVoltage(getEnergyTier())]);
+            textList.add("getEnergyTier(): "+getEnergyTier());
+            textList.add("energyContainer.getInputVoltage(): "+energyContainer.getInputVoltage());
+            
+            
+            
         }
     }
 
