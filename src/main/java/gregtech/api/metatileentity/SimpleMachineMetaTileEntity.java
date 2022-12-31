@@ -22,6 +22,7 @@ import gregtech.api.recipes.ingredients.IntCircuitIngredient;
 import gregtech.api.util.GTUtility;
 import gregtech.client.renderer.ICubeRenderer;
 import gregtech.client.renderer.texture.Textures;
+import gregtech.client.utils.RenderUtil;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -151,16 +152,16 @@ public class SimpleMachineMetaTileEntity extends WorkableTieredMetaTileEntity im
     public void renderMetaTileEntity(CCRenderState renderState, Matrix4 translation, IVertexOperation[] pipeline) {
         super.renderMetaTileEntity(renderState, translation, pipeline);
         if (outputFacingFluids != null && getExportFluids().getTanks() > 0) {
-            Textures.PIPE_OUT_OVERLAY.renderSided(outputFacingFluids, renderState, translation, pipeline);
+            Textures.PIPE_OUT_OVERLAY.renderSided(outputFacingFluids, renderState, RenderUtil.adjustTrans(translation, outputFacingFluids, 2), pipeline);
         }
         if (outputFacingItems != null && getExportItems().getSlots() > 0) {
-            Textures.PIPE_OUT_OVERLAY.renderSided(outputFacingItems, renderState, translation, pipeline);
+            Textures.PIPE_OUT_OVERLAY.renderSided(outputFacingItems, renderState, RenderUtil.adjustTrans(translation, outputFacingItems, 2), pipeline);
         }
         if (isAutoOutputItems() && outputFacingItems != null) {
-            Textures.ITEM_OUTPUT_OVERLAY.renderSided(outputFacingItems, renderState, translation, pipeline);
+            Textures.ITEM_OUTPUT_OVERLAY.renderSided(outputFacingItems, renderState, RenderUtil.adjustTrans(translation, outputFacingItems, 2), pipeline);
         }
         if (isAutoOutputFluids() && outputFacingFluids != null) {
-            Textures.FLUID_OUTPUT_OVERLAY.renderSided(outputFacingFluids, renderState, translation, pipeline);
+            Textures.FLUID_OUTPUT_OVERLAY.renderSided(outputFacingFluids, renderState, RenderUtil.adjustTrans(translation, outputFacingFluids, 2), pipeline);
         }
     }
 
@@ -449,10 +450,10 @@ public class SimpleMachineMetaTileEntity extends WorkableTieredMetaTileEntity im
                 .setButtonTexture(GuiTextures.BUTTON_OVERCLOCK));
 
         if (exportItems.getSlots() + exportFluids.getTanks() <= 9) {
+            ImageWidget logo = new ImageWidget(152, 63 + yOffset, 17, 17, GTValues.XMAS.get() ? GuiTextures.GREGTECH_LOGO_XMAS : GuiTextures.GREGTECH_LOGO).setIgnoreColor(true);
             SlotWidget circuitSlot = new SlotWidget(circuitInventory, 0, 124, 62 + yOffset, true, true, false)
                     .setBackgroundTexture(GuiTextures.SLOT, getCircuitSlotOverlay());
-            builder.widget(getCircuitSlotTooltip(circuitSlot))
-                    .widget(new ImageWidget(152, 63 + yOffset, 17, 17, GuiTextures.GREGTECH_LOGO).setIgnoreColor(true))
+            builder.widget(getCircuitSlotTooltip(circuitSlot)).widget(logo)
                     .widget(new ClickButtonWidget(115, 62 + yOffset, 9, 9, "", this::circuitConfigPlus)
                             .setShouldClientCallback(true)
                             .setButtonTexture(GuiTextures.BUTTON_INT_CIRCUIT_PLUS)
