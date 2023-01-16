@@ -134,7 +134,7 @@ public class MetaTileEntityMiner extends TieredMetaTileEntity implements IMiner,
         textList.add(new TextComponentTranslation("gregtech.machine.miner.startx", this.minerLogic.getX().get()));
         textList.add(new TextComponentTranslation("gregtech.machine.miner.starty", this.minerLogic.getY().get()));
         textList.add(new TextComponentTranslation("gregtech.machine.miner.startz", this.minerLogic.getZ().get()));
-        textList.add(new TextComponentTranslation("gregtech.universal.tooltip.working_area", workingArea, workingArea));
+        textList.add(new TextComponentTranslation(I18n.format("gregtech.universal.tooltip.working_area", workingArea, workingArea)));
         if (this.minerLogic.isDone())
             textList.add(new TextComponentTranslation("gregtech.machine.miner.done").setStyle(new Style().setColor(TextFormatting.GREEN)));
         else if (this.minerLogic.isWorking())
